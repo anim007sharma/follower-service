@@ -130,6 +130,7 @@ export class FollowerUpdation {
         );
         continue;
       }
+
       if (!influencer) {
         console.info(
           "[FollowerUpdation-run]: No influencer data found for ID =",

@@ -6,7 +6,7 @@ export class ApiUtils {
 
   constructor() {
     this.mockstagramAxios = axios.create({
-      baseURL: "http://localhost:3000",
+      baseURL: process.env.MOCKSTAGRAM_BASE_URL,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",

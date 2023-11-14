@@ -13,7 +13,7 @@ const importData = async () => {
     await InfluencerHistory.deleteMany();
 
     const influencers: IInfluencer[] = [];
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 1000000; i++) {
       const influencerId = 1000000 + i;
       const influencer = {
         pk: influencerId,
