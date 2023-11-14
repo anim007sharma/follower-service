@@ -2,12 +2,13 @@ import InfluencerData from "../models/influencerData.model";
 
 export class InfluencerDataRepository {
   async insert(pk: number, followerCount: number) {
-    InfluencerData.create({
+    const influencerDocument = {
       pk: pk,
       avgCount: followerCount,
       currentCount: followerCount,
       totalDataPoints: 1,
-    });
+    };
+    InfluencerData.create(influencerDocument);
   }
 
   async updateInfluencerById(
@@ -16,16 +17,15 @@ export class InfluencerDataRepository {
     currentCount: number,
     totalDataPoints: number
   ) {
-    return InfluencerData.findOneAndUpdate(
-      {
-        pk: pk,
-      },
-      {
-        avgCount: avgCount,
-        currentCount: currentCount,
-        totalDataPoints: totalDataPoints,
-      }
-    );
+    const query = {
+      pk: pk,
+    };
+    const influencerDocument = {
+      avgCount: avgCount,
+      currentCount: currentCount,
+      totalDataPoints: totalDataPoints,
+    };
+    return InfluencerData.findOneAndUpdate(query, influencerDocument);
   }
 
   async getInfluenerById(pk: number) {

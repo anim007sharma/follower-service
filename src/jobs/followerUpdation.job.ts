@@ -58,12 +58,11 @@ export class FollowerUpdation {
         const pk = influencerData[i].pk;
         const followerCount = influencerData[i].followerCount;
 
-        const influencerHistory = {
-          pk: pk,
-          datetime: jobTime,
-          followers: followerCount,
-        };
-        await this.influencerHistroyRepository.insert(influencerHistory);
+        await this.influencerHistroyRepository.insert(
+          pk,
+          jobTime,
+          followerCount
+        );
         console.info(
           "[FollowerUpdation-updateOrInsertInfluencerData]: Influencer History inserted for InfluencerId",
           pk

@@ -3,7 +3,12 @@ import InfluencerHistory, {
 } from "../models/influencerHistory.model";
 
 export class InfluencerHistoryRepository {
-  async insert(influencerHistory: IInfluencerHistory) {
-    InfluencerHistory.create(influencerHistory);
+  async insert(pk, jobTime, followerCount) {
+    const influencerHistoryDocument = {
+      pk: pk,
+      datetime: jobTime,
+      followers: followerCount,
+    };
+    InfluencerHistory.create(influencerHistoryDocument);
   }
 }
